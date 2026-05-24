@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assaí + Trizy — Presente e Futuro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --laranja: #FF3D03;
+    --laranja-claro: #FF6B3D;
+    --chumbo: #424449;
+    --preto: #000000;
+    --cinza: #C5CAD2;
+    --cinza-bg: #F4F5F7;
+    --azul-escuro: #000032;
+    --branco: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--cinza-bg);
+    color: var(--chumbo);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === NAVEGAÇÃO === */
+  .nav-fixed {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1000;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: var(--preto);
+    padding: 10px 16px;
+    border-radius: 100px;
+    box-shadow: 0 4px 20px rgba(0,0,50,0.15);
+  }
+  .nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--branco);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-btn:hover { background: var(--laranja); }
+  .nav-counter {
+    color: var(--branco);
+    font-weight: 500;
+    font-size: 13px;
+    padding: 0 8px;
+    letter-spacing: 1px;
+    min-width: 50px;
+    text-align: center;
+  }
+  .nav-counter b { color: var(--laranja); font-weight: 700; }
+
+  /* === ESTRUTURA DOS SLIDES === */
+  .slide {
+    min-height: 100vh;
+    padding: 80px 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid rgba(66,68,73,0.08);
+    scroll-snap-align: start;
+  }
+
+  .slide-marker {
+    position: absolute;
+    top: 32px;
+    left: 8vw;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--chumbo);
+    opacity: 0.4;
+    text-transform: uppercase;
+  }
+  .slide-marker .num {
+    color: var(--laranja);
+    font-weight: 900;
+    opacity: 1;
+  }
+
+  /* === TIPOGRAFIA === */
+  h1, h2, h3 { font-family: 'Barlow', sans-serif; line-height: 1.05; }
+  h1 { font-weight: 900; font-size: clamp(48px, 6vw, 88px); letter-spacing: -2px; }
+  h2 { font-weight: 700; font-size: clamp(32px, 3.4vw, 52px); letter-spacing: -1px; line-height: 1.1; }
+  h3 { font-weight: 700; font-size: 22px; letter-spacing: -0.3px; }
+  .subtitle { font-weight: 500; font-size: 18px; color: var(--chumbo); opacity: 0.7; }
+  .small { font-size: 13px; opacity: 0.6; }
+
+  .accent { color: var(--laranja); }
+  .underline-orange {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .underline-orange::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 60px; height: 4px;
+    background: var(--laranja);
+  }
+
+  /* === SLIDE 1 — CAPA === */
+  .capa {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 0;
+    overflow: hidden;
+  }
+  .capa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    width: 100%;
+  }
+  .capa-left {
+    padding: 80px 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .capa-right {
+    background: var(--laranja);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .capa-right::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent, transparent 40px,
+      rgba(0,0,0,0.04) 40px, rgba(0,0,0,0.04) 41px
+    );
+  }
+  .capa-mark {
+    font-size: 240px;
+    font-weight: 900;
+    color: var(--preto);
+    line-height: 0.85;
+    position: relative;
+    letter-spacing: -10px;
+  }
+  .capa-mark span { display: block; }
+  .capa-mark .plus {
+    color: var(--branco);
+    font-size: 180px;
+    margin: -20px 0;
+    margin-left: 60px;
+  }
+  .capa-eyebrow {
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 500;
+    color: var(--laranja);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .capa-title {
+    font-size: clamp(56px, 6.5vw, 96px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 0.95;
+    margin-bottom: 16px;
+  }
+  .capa-title .light { font-weight: 100; color: var(--cinza); }
+  .capa-meta {
+    display: flex;
+    gap: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .capa-meta div { display: flex; flex-direction: column; gap: 4px; }
+  .capa-meta .label { font-size: 11px; letter-spacing: 2px; color: var(--cinza); text-transform: uppercase; }
+  .capa-meta .value { font-size: 18px; font-weight: 700; }
+
+  /* === SLIDE 2 — STATUS QUO vs DESEJO === */
+  .contraste-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 48px;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .contraste-card {
+    padding: 48px 40px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .contraste-card.status { background: var(--cinza); color: var(--chumbo); }
+  .contraste-card.desejo { background: var(--preto); color: var(--branco); }
+  .contraste-card .tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+  .contraste-card .quote {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+  .contraste-card.desejo .quote { color: var(--laranja); }
+  .contraste-arrow {
+    position: absolute;
+    right: -28px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px; height: 56px;
+    background: var(--laranja);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--branco);
+    font-size: 24px;
+    font-weight: 900;
+    z-index: 2;
+  }
+  .premissas {
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--branco);
+    border-left: 4px solid var(--laranja);
+  }
+  .premissas h3 { margin-bottom: 16px; font-size: 16px; color: var(--laranja); letter-spacing: 1px; text-transform: uppercase; }
+  .premissas ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 32px; }
+  .premissas li { font-size: 15px; line-height: 1.5; padding-left: 16px; position: relative; }
+  .premissas li::before { content: '—'; position: absolute; left: 0; color: var(--laranja); font-weight: 700; }
+  .premissas li b { color: var(--preto); }
+
+  /* === SLIDE 3 — FLUXO TNS ORDER (imagem) === */
+  .fluxo-img-wrap {
+    margin-top: 32px;
+    background: var(--branco);
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+  }
+  .fluxo-img-wrap img {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    display: block;
+  }
+  .fluxo-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--chumbo);
+    opacity: 0.75;
+    font-style: italic;
+  }
+  .fluxo-note b { color: var(--laranja); font-style: normal; }
+
+  /* === SLIDE 4/5/6 — MATRIZ DE DORES === */
+  .matriz-legenda {
+    display: flex;
+    gap: 24px;
+    margin: 24px 0 32px;
+    flex-wrap: wrap;
+  }
+  .legenda-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .legenda-dot {
+    width: 14px; height: 14px;
+    border-radius: 3px;
+  }
+  .legenda-dot.default { background: var(--branco); border: 1px solid var(--cinza); }
+  .legenda-dot.priorizada { background: var(--laranja); }
+  .legenda-dot.roadmap { background: var(--azul-escuro); }
+
+  .matriz {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    align-items: start;
+  }
+  .matriz-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .matriz-col-header {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 8px;
+    background: var(--preto);
+    color: var(--branco);
+    text-align: center;
+    line-height: 1.2;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid var(--laranja);
+  }
+  .dor-card {
+    background: var(--branco);
+    padding: 10px 10px 10px 14px;
+    font-size: 11.5px;
+    line-height: 1.3;
+    border-left: 3px solid var(--cinza);
+    position: relative;
+    transition: all 0.2s;
+  }
+  .dor-card:hover { transform: translateX(2px); }
+  .dor-card.priorizada {
+    background: var(--laranja);
+    color: var(--branco);
+    border-left-color: var(--preto);
+    font-weight: 500;
+  }
+  .dor-card.roadmap {
+    background: var(--azul-escuro);
+    color: var(--branco);
+    border-left-color: var(--laranja);
+    font-weight: 500;
+  }
+  .dor-id {
+    font-weight: 900;
+    margin-right: 4px;
+  }
+
+  /* === SLIDE 7 — DORES MACRO === */
+  .macro-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .macro-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .macro-item {
+    background: var(--branco);
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    border-left: 4px solid var(--laranja);
+    transition: all 0.2s;
+  }
+  .macro-item:hover { transform: translateX(4px); }
+  .macro-num {
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--laranja);
+    line-height: 1;
+    min-width: 36px;
+  }
+  .macro-text {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--chumbo);
+    font-weight: 500;
+  }
+  .impactos-box {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 32px;
+    align-self: start;
+    position: sticky;
+    top: 32px;
+  }
+  .impactos-box h3 {
+    color: var(--laranja);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .impactos-box ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .impactos-box li {
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.3;
+  }
+  .impactos-box li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 8px; height: 8px;
+    background: var(--laranja);
+  }
+  .fonte { margin-top: 24px; font-size: 11px; opacity: 0.5; }
+
+  /* === SLIDE 8 — SOLUÇÕES === */
+  .solucoes-table {
+    margin-top: 32px;
+    background: var(--branco);
+    overflow: hidden;
+  }
+  .solucao-row {
+    display: grid;
+    grid-template-columns: 60px 2fr 2fr 1fr;
+    gap: 24px;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(66,68,73,0.08);
+    align-items: center;
+  }
+  .solucao-row.header {
+    background: var(--preto);
+    color: var(--branco);
+  }
+  .solucao-row.header > div {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .solucao-row:not(.header):hover { background: rgba(255,61,3,0.04); }
+  .solucao-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--laranja);
+  }
+  .solucao-dor { font-size: 14px; line-height: 1.4; font-weight: 500; }
+  .solucao-sol {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: var(--preto);
+  }
+  .solucao-time {
+    font-size: 12px;
+    padding: 6px 12px;
+    background: var(--laranja);
+    color: var(--branco);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .solucao-time.discuss { background: var(--cinza); color: var(--chumbo); }
+
+  /* === SLIDE 9 — CRONOGRAMA PARAMETRIZAÇÃO === */
+  .crono-vertical {
+    margin-top: 40px;
+    position: relative;
+    padding-left: 32px;
+    max-width: 760px;
+  }
+  .crono-vertical::before {
+    content: '';
+    position: absolute;
+    left: 12px; top: 12px; bottom: 12px;
+    width: 2px;
+    background: var(--laranja);
+  }
+  .crono-item {
+    position: relative;
+    padding: 16px 0 16px 32px;
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .crono-item::before {
+    content: '';
+    position: absolute;
+    left: -25px; top: 22px;
+    width: 14px; height: 14px;
+    background: var(--branco);
+    border: 3px solid var(--laranja);
+    border-radius: 50%;
+  }
+  .crono-date {
+    font-weight: 900;
+    color: var(--laranja);
+    font-size: 18px;
+    min-width: 140px;
+    letter-spacing: -0.5px;
+  }
+  .crono-text {
+    font-size: 16px;
+    color: var(--chumbo);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* === SLIDE 10 — PAINEL NF === */
+  .duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .col-card {
+    background: var(--branco);
+    padding: 32px;
+    position: relative;
+  }
+  .col-card.dark { background: var(--preto); color: var(--branco); }
+  .col-card.orange { background: var(--laranja); color: var(--branco); }
+  .col-card .col-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+  .col-card h3 { margin-bottom: 16px; font-size: 22px; }
+  .col-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .col-card li {
+    font-size: 14px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .col-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-weight: 900;
+  }
+  .col-card.dark li::before, .col-card.orange li::before { color: var(--laranja); }
+  .col-card.dark li::before { color: var(--laranja); }
+  .col-card.orange li::before { color: var(--preto); }
+
+  .fases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .fase-box {
+    padding: 20px;
+    background: var(--branco);
+    border-top: 4px solid var(--laranja);
+  }
+  .fase-box .fase-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--laranja);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .fase-box h4 { font-size: 16px; margin-bottom: 12px; font-weight: 700; }
+  .fase-box ul { list-style: none; }
+  .fase-box li { font-size: 13px; line-height: 1.4; padding: 4px 0 4px 16px; position: relative; }
+  .fase-box li::before { content: '·'; position: absolute; left: 4px; font-weight: 900; color: var(--laranja); font-size: 18px; top: 0px; }
+
+  .beneficios-section {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+  }
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .beneficio {
+    background: var(--branco);
+    padding: 20px;
+    border-left: 4px solid var(--laranja);
+  }
+  .beneficio .icon-num {
+    width: 28px; height: 28px;
+    background: var(--laranja);
+    color: var(--branco);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .beneficio h4 { font-size: 14px; margin-bottom: 6px; color: var(--preto); }
+  .beneficio p { font-size: 12px; line-height: 1.4; opacity: 0.75; }
+  .custos-box {
+    background: var(--chumbo);
+    color: var(--branco);
+    padding: 20px;
+  }
+  .custos-box h4 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--laranja);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .custos-box p { font-size: 13px; line-height: 1.4; }
+
+  /* === SLIDE 11 — APROVAÇÃO AUTOMÁTICA === */
+  .aprovacao-fluxo {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .fluxo-baseline {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fluxo-baseline .badge {
+    background: var(--laranja);
+    color: var(--branco);
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .fluxo-baseline strong { font-size: 17px; }
+
+  .fluxo-tree {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .fluxo-branch {
+    background: var(--branco);
+    padding: 24px;
+    border-top: 4px solid var(--laranja);
+  }
+  .fluxo-branch h4 {
+    font-size: 13px;
+    color: var(--laranja);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .fluxo-branch p { font-size: 15px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+  .fluxo-decision {
+    background: rgba(255,61,3,0.08);
+    padding: 16px;
+    border-left: 3px solid var(--laranja);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .fluxo-result {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .result-tag {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .result-tag.auto { background: var(--laranja); color: var(--branco); }
+  .result-tag.manual { background: var(--cinza); color: var(--chumbo); }
+
+  .premissas-evolucoes {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .info-block {
+    background: var(--branco);
+    padding: 24px;
+  }
+  .info-block.dark { background: var(--azul-escuro); color: var(--branco); }
+  .info-block h4 {
+    font-size: 12px;
+    color: var(--laranja);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .info-block ul { list-style: none; }
+  .info-block li {
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 4px 0 4px 16px;
+    position: relative;
+  }
+  .info-block li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--laranja);
+    font-weight: 900;
+  }
+
+  /* === SLIDE 12 — CRONOGRAMA GERAL === */
+  .crono-table-wrap {
+    margin-top: 40px;
+    background: var(--branco);
+    padding: 32px;
+  }
+  .crono-header {
+    display: grid;
+    grid-template-columns: 240px repeat(4, 1fr) 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .crono-header > div {
+    padding: 12px;
+    background: var(--preto);
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .crono-header > div:first-child {
+    background: transparent;
+    color: var(--chumbo);
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.5;
+  }
+  .crono-row {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+    align-items: center;
+  }
+  .crono-row-label {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--preto);
+    padding: 8px 0;
+    line-height: 1.2;
+  }
+  .crono-row-bars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    position: relative;
+    height: 56px;
+  }
+  .crono-bar {
+    background: var(--laranja);
+    color: var(--branco);
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    grid-row: 1;
+  }
+  .crono-bar.phase2 { background: var(--azul-escuro); }
+  .crono-bar.phase3 { background: var(--chumbo); }
+  .crono-bar.span-q2 { grid-column: 1; }
+  .crono-bar.span-q3 { grid-column: 2; }
+  .crono-bar.span-q4 { grid-column: 3; }
+  .crono-bar.span-q2-q3 {grid-column: 1 / 3;}
+  .crono-bar.span-q3-q4 { grid-column: 2 / 4; }
+  .crono-bar.span-2027 { grid-column: 4 / 6; }
+  .crono-bar.span-q4-2027 { grid-column: 3 / 5; }
+
+  .crono-footer-note {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(66,68,73,0.1);
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  /* === SLIDE FINAL === */
+  .final {
+    background: var(--preto);
+    color: var(--branco);
+    text-align: center;
+    align-items: center;
+  }
+  .final-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .final-title {
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+  .final-title .accent { color: var(--laranja); }
+  .final-sub {
+    font-size: 20px;
+    font-weight: 300;
+    opacity: 0.8;
+    line-height: 1.4;
+    margin-bottom: 64px;
+  }
+  .logo-final {
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
+  .logo-final .laranja { color: var(--laranja); }
+
+  /* === ANIMAÇÕES === */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .slide > * { animation: fadeUp 0.6s ease both; }
+  .slide > *:nth-child(2) { animation-delay: 0.1s; }
+  .slide > *:nth-child(3) { animation-delay: 0.2s; }
+  .slide > *:nth-child(4) { animation-delay: 0.3s; }
+
+  /* === RESPONSIVO === */
+  @media (max-width: 900px) {
+    .slide { padding: 60px 6vw; }
+    .capa-grid { grid-template-columns: 1fr; }
+    .capa-right { min-height: 40vh; }
+    .contraste-wrap, .duas-colunas, .premissas-evolucoes, .fluxo-tree { grid-template-columns: 1fr; }
+    .premissas ul { grid-template-columns: 1fr; }
+    .matriz { grid-template-columns: 1fr; }
+    .matriz-col-header { min-height: auto; }
+    .macro-grid { grid-template-columns: 1fr; }
+    .impactos-box { position: static; }
+    .beneficios-section { grid-template-columns: 1fr; }
+    .beneficios-grid { grid-template-columns: 1fr; }
+    .solucao-row { grid-template-columns: 50px 1fr; }
+    .solucao-row > div:nth-child(3), .solucao-row > div:nth-child(4) { grid-column: 2; }
+    .fluxo-grid { grid-template-columns: 1fr 1fr; }
+    .fases-grid { grid-template-columns: 1fr; }
+    .crono-row { grid-template-columns: 1fr; }
+    .crono-header { display: none; }
+    .nav-fixed { top: auto; bottom: 16px; right: 50%; transform: translateX(50%); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav-fixed">
+  <button class="nav-btn" onclick="navSlide(-1)">‹</button>
+  <span class="nav-counter"><b id="curSlide">01</b> / <span id="totSlide">13</span></span>
+  <button class="nav-btn" onclick="navSlide(1)">›</button>
+</nav>
+
+<!-- ========== SLIDE 1 — CAPA ========== -->
+<section class="slide capa" id="slide-1">
+  <div class="capa-grid">
+    <div class="capa-left">
+      <div>
+        <div class="capa-eyebrow">Apresentação Estratégica · Maio 2026</div>
+        <h1 class="capa-title">
+          Assaí <span class="light">+</span><br>
+          <span class="accent">Trizy (nstech)</span>
+        </h1>
+        <p class="subtitle" style="color: rgba(255,255,255,0.7); margin-top: 24px; font-size: 22px;">
+          Presente e Futuro do abastecimento.
+        </p>
+      </div>
+      <div class="capa-meta">
+        <div>
+          <span class="label">Apresentado por</span>
+          <span class="value">nstech</span>
+        </div>
+        <div>
+          <span class="label">Data</span>
+          <span class="value">26 / 05 / 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 2 — CONTEXTO ========== -->
+<section class="slide" id="slide-2">
+  <div class="slide-marker"><span class="num">02</span> · Contexto</div>
+  <h2>Na reunião de <span class="accent">08/04</span> decidimos juntos<br>mapear e priorizar dores e soluções.</h2>
+
+  <div class="contraste-wrap">
+    <div class="contraste-card status">
+      <div class="tag">Status Quo</div>
+      <div class="quote">Percepção de controle limitado do abastecimento.</div>
+      <div class="contraste-arrow">→</div>
+    </div>
+    <div class="contraste-card desejo">
+      <div class="tag">Desejo</div>
+      <div class="quote">"Controle absoluto e gestão da previsibilidade."</div>
+    </div>
+  </div>
+
+  <div class="premissas">
+    <h3>Premissas a partir da reunião</h3>
+    <ul>
+      <li>Começar do <b>mapeamento das dores e soluções</b> para curto, médio e longo prazo.</li>
+      <li><b>Curto prazo:</b> entrega de valor rápida sem depender de integração de sistemas; podemos usar "upload/download manual de arquivos" se necessário.</li>
+      <li><b>Longo prazo:</b> Assaí quer entender o fluxo ideal e possível.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== SLIDE 3 — FLUXO TNS ORDER ========== -->
+<section class="slide" id="slide-3">
+  <div class="slide-marker"><span class="num">03</span> · O Fluxo</div>
+  <h2>Fluxo de abastecimento com <span class="accent">TNS Order</span>.</h2>
+  <p class="subtitle" style="margin-top:8px;">Da emissão do pedido ao check-out do caminhão na doca.</p>
+
+    <div class="fluxo-img-wrap">
+    <img src="fluxo_tns_order.svg" alt="Fluxo de abastecimento com TNS Order — diferenciação entre jornada do varejo (etapas 1, 5, 6, 8) e jornada do fornecedor (etapas 2, 3, 4, 7).">
+    </div>
+  <p class="small" style="margin-top:24px;">→ Edição de agenda (data / pedidos / itens) é possível ao longo do fluxo.</p>
+</section>
+
+<!-- ========== SLIDE 4 — MATRIZ DE 20 DORES ========== -->
+<section class="slide" id="slide-4">
+  <div class="slide-marker"><span class="num">04</span> · Diagnóstico</div>
+  <h2>Mapeamos <span class="accent">20 dores</span> ao longo do fluxo,<br>com Planejamento de Capacidade como 1º bloco.</h2>
+
+  <div class="matriz-legenda">
+    <div class="legenda-item"><span class="legenda-dot priorizada"></span> <b style="color:var(--laranja);">7 priorizadas</b> — maior potencial de resultado</div>
+    <div class="legenda-item"><span class="legenda-dot roadmap"></span> <b style="color:var(--azul-escuro);">11 em roadmap</b> — solução disponível ou planejada</div>
+    <div class="legenda-item"><span class="legenda-dot default"></span> Demais dores mapeadas</div>
+  </div>
+
+  <div class="matriz">
+    <div class="matriz-col">
+      <div class="matriz-col-header">Planejamento de Capacidade</div>
+      <div class="dor-card"><span class="dor-id">D1.</span> Capacidade de recebimento estática</div>
+      <div class="dor-card roadmap"><span class="dor-id">D2.</span> Falta de limitação por categoria/turno</div>
+    </div>
+    <div class="matriz-col">
+      <div class="matriz-col-header">Previsibilidade (Comercial)</div>
+      <div class="dor-card priorizada"><span class="dor-id">D3.</span> Ausência de visibilidade prévia de volume e timing comerciais</div>
+      <div class="dor-card"><span class="dor-id">D4.</span> Ausência de lead time formal/acordado</div>
+    </div>
+    <div class="matriz-col">
+      <div class="matriz-col-header">Emissão do Pedido</div>
+      <div class="dor-card roadmap"><span class="dor-id">D5.</span> Pedido sem data de início/fim de recebimento</div>
+      <div class="dor-card roadmap"><span class="dor-id">D6.</span> Produto fora de linha / carteira "suja"</div>
+    </div>
+    <div class="matriz-col">
+      <div class="matriz-col-header">Planejamento do Fornecedor</div>
+      <div class="dor-card"><span class="dor-id">D7.</span> Logística do fornecedor sem informação do pedido</div>
+      <div class="dor-card roadmap"><span class="dor-id">D8.</span> Fornecedor sem visibilidade da carteira</div>
+      <div class="dor-card roadmap"><span class="dor-id">D9.</span> Priorização inexistente (externa)</div>
+      <div class="dor-card"><span class="dor-id">D10.</span> Fornecedor posterga Assaí</div>
+    </div>
+    <div class="matriz-col">
+      <div class="matriz-col-header">Solicitação de Agendamento</div>
+      <div class="dor-card roadmap"><span class="dor-id">D11.</span> Carga agendada ≠ carga enviada</div>
+      <div class="dor-card"><span class="dor-id">D12.</span> Composição multi-stop desconhecida</div>
+      <div class="dor-card"><span class="dor-id">D13.</span> Alocação de estoque e restrição (modelo Unilever)</div>
+      <div class="dor-card roadmap"><span class="dor-id">D14.</span> Fornecedores que não agendam (lojas)</div>
+    </div>
+    <div class="matriz-col">
+      <div class="matriz-col-header">Aprovação da Solicitação</div>
+      <div class="dor-card roadmap"><span class="dor-id">D15.</span> Muito trabalho manual na aprovação</div>
+      <div class="dor-card roadmap"><span class="dor-id">D16.</span> NF não atrelada ao agendamento</div>
+      <div class="dor-card"><span class="dor-id">D17.</span> Falta confirmação proativa (no-show)</div>
+    </div>
+    <div class="matriz-col">
+      <div class="matriz-col-header">Chegada / Pós-Recebimento</div>
+      <div class="dor-card roadmap"><span class="dor-id">D18.</span> Divergências detectadas só na chegada</div>
+      <div class="dor-card priorizada"><span class="dor-id">D19.</span> NF baixada em outro pedido / "tampão"</div>
+      <div class="dor-card roadmap"><span class="dor-id">D20.</span> Sem visibilidade de produtividade</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 5 — 7 DORES MACRO ========== -->
+<section class="slide" id="slide-5">
+  <div class="slide-marker"><span class="num">05</span> · Síntese</div>
+  <h2>Sintetizamos em <span class="accent">sete dores macro</span><br>com o Time de Abastecimento do Assaí.</h2>
+
+  <div class="macro-grid">
+    <div class="macro-list">
+      <div class="macro-item">
+        <span class="macro-num">01</span>
+        <span class="macro-text">Planejamento de capacidade <b>não reflete a complexidade</b> de diferentes cargas (ex: pneus × pallets monoproduto).</span>
+      </div>
+      <div class="macro-item">
+        <span class="macro-num">02</span>
+        <span class="macro-text">Logística Assaí tem <b>pouca previsibilidade</b> de volumes e timings comerciais (pré-pedido).</span>
+      </div>
+      <div class="macro-item">
+        <span class="macro-num">03</span>
+        <span class="macro-text">Pedidos transitam com <b>divergência</b> de condições comerciais, tributárias ou cadastro de produtos.</span>
+      </div>
+      <div class="macro-item">
+        <span class="macro-num">04</span>
+        <span class="macro-text"><b>Divergências na visão da carteira</b> entre Assaí e Fornecedor.</span>
+      </div>
+      <div class="macro-item">
+        <span class="macro-num">05</span>
+        <span class="macro-text"><b>Fornecedores que não agendam.</b></span>
+      </div>
+      <div class="macro-item">
+        <span class="macro-num">06</span>
+        <span class="macro-text">Aprovação de agendas é <b>manual</b> — time focado no operacional, erros inevitáveis e baixa governança.</span>
+      </div>
+      <div class="macro-item">
+        <span class="macro-num">07</span>
+        <span class="macro-text">Divergências entre <b>agendamento × pedido × NF × carga</b> são detectadas apenas na chegada.</span>
+      </div>
+    </div>
+
+    <div class="impactos-box">
+      <h3>Impactos</h3>
+      <ul>
+        <li>Ociosidade ou overbooking</li>
+        <li>Ruptura</li>
+        <li>Trabalho manual = erros</li>
+        <li>Menor produtividade</li>
+        <li>Dificuldade de priorização</li>
+        <li>Demora na resposta ao fornecedor</li>
+      </ul>
+      <p class="fonte">Fonte: workshop com Time de Abastecimento do Assaí em 15/04/26.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 6 — SOLUÇÕES ========== -->
+<section class="slide" id="slide-6">
+  <div class="slide-marker"><span class="num">06</span> · Soluções</div>
+  <h2>Resolvemos <span class="accent">6 das 7 dores</span> macro<br>ainda em <span class="accent">2026</span>.</h2>
+
+  <div class="solucoes-table">
+    <div class="solucao-row header">
+      <div>#</div>
+      <div>Dor Macro</div>
+      <div>Solução nstech</div>
+      <div style="text-align:center;">Timeline</div>
+    </div>
+    <div class="solucao-row">
+      <div class="solucao-num">01</div>
+      <div class="solucao-dor">Capacidade não reflete complexidade de cargas</div>
+      <div class="solucao-sol">Parametrização de complexidade por categoria de recebimento</div>
+      <div class="solucao-time">Em homologação<br>CD 920 — Maracanaú</div>
+    </div>
+    <div class="solucao-row">
+      <div class="solucao-num">02</div>
+      <div class="solucao-dor">Pouca previsibilidade de volumes/timings comerciais</div>
+      <div class="solucao-sol" style="opacity:0.6;">Solução a discutir</div>
+      <div class="solucao-time discuss">Discovery<br>Q2 / 2026</div>
+    </div>
+    <div class="solucao-row">
+      <div class="solucao-num">03</div>
+      <div class="solucao-dor">Divergência de condições comerciais/tributárias</div>
+      <div class="solucao-sol">Condições comerciais do pedido</div>
+      <div class="solucao-time">Hub de Pedidos (substituto EDI) — pago pelo Fornecedor</div>
+    </div>
+    <div class="solucao-row">
+      <div class="solucao-num">04</div>
+      <div class="solucao-dor">Divergências na visão da carteira</div>
+      <div class="solucao-sol">Hub de Pedidos (substituto EDI) — pago pelo Fornecedor</div>
+      <div class="solucao-time">H2/2026<br>→ H1/2027</div>
+    </div>
+    <div class="solucao-row">
+      <div class="solucao-num">05</div>
+      <div class="solucao-dor">Fornecedores que não agendam</div>
+      <div class="solucao-sol" style="opacity:0.6;">Solução prevista</div>
+      <div class="solucao-time discuss">Discovery<br>Q2 / 2026</div>
+    </div>
+    <div class="solucao-row">
+      <div class="solucao-num">06</div>
+      <div class="solucao-dor">Aprovação manual de agendas</div>
+      <div class="solucao-sol">Parametrização de regras por fornecedor + aprovação automática</div>
+      <div class="solucao-time">Q3 / 2026</div>
+    </div>
+    <div class="solucao-row">
+      <div class="solucao-num">07</div>
+      <div class="solucao-dor">Divergências detectadas só na chegada</div>
+      <div class="solucao-sol">Painel de conferência NF × Pedido × Agendamento</div>
+      <div class="solucao-time">Q3 / 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 7 — CRONOGRAMA PARAMETRIZAÇÃO ========== -->
+<section class="slide" id="slide-7">
+  <div class="slide-marker"><span class="num">07</span> · Em andamento</div>
+  <h2><span class="accent">Parametrização de capacidade</span><br>por categoria — trabalho já iniciado.</h2>
+  <p class="subtitle" style="margin-top:8px;">Funcionalidade apresentada ao time de abastecimento.</p>
+
+  <div class="crono-vertical">
+    <div class="crono-item">
+      <span class="crono-date">29 · Abr</span>
+      <span class="crono-text">Apresentação da funcionalidade</span>
+    </div>
+    <div class="crono-item">
+      <span class="crono-date">05 · Mai</span>
+      <span class="crono-text">Alinhamento com time de abastecimento para <b>definição de setor</b></span>
+    </div>
+    <div class="crono-item">
+      <span class="crono-date">Até 22 · Mai</span>
+      <span class="crono-text">Preparação do ambiente de homologação</span>
+    </div>
+    <div class="crono-item">
+      <span class="crono-date">25 · Mai → 05 · Jun</span>
+      <span class="crono-text"><b>Homologação com time Assaí</b></span>
+    </div>
+    <div class="crono-item">
+      <span class="crono-date">08 · Jun</span>
+      <span class="crono-text">Início rollout (a refinar pós-homologação)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 8 — PAINEL NF ========== -->
+<section class="slide" id="slide-8">
+  <div class="slide-marker"><span class="num">08</span> · Solução em destaque</div>
+  <h2>Painel de <span class="accent">conferência de notas fiscais.</span></h2>
+  <p class="subtitle" style="margin-top:8px; max-width: 760px;">Vínculo automático de NFs às demandas para transformar recebimento em controle e previsibilidade.</p>
+
+  <div class="duas-colunas">
+    <div class="col-card dark">
+      <div class="col-tag">Dores que resolve</div>
+      <h3>O que está custando hoje</h3>
+      <ul>
+        <li>Baixa visibilidade operacional, divergências conhecidas tardiamente</li>
+        <li>Retrabalho na conferência manual de NFs</li>
+        <li>Lentidão no recebimento de outras mercadorias</li>
+        <li>Falta de rastreabilidade entre NF entregue e pedido</li>
+      </ul>
+    </div>
+    <div class="col-card orange">
+      <div class="col-tag">Solução Trizy</div>
+      <h3>Painel de conferência</h3>
+      <ul>
+        <li>Vincula NF a Demanda automaticamente</li>
+        <li>Confere dados base: Pedido, EAN, quantidades, peso, data da agenda</li>
+        <li>Prioriza NF's para conferência antecipada à data da agenda</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fases-grid">
+    <div class="fase-box">
+      <div class="fase-label">Fase 1 · Q3 / 2026</div>
+      <h4>Vínculo automático + conferência base</h4>
+      <ul>
+        <li>NF ↔ Demanda automático</li>
+        <li>Conferência de dados base (Pedido, EAN, qtd, peso, data)</li>
+        <li>Priorização para conferência antecipada</li>
+      </ul>
+    </div>
+    <div class="fase-box" style="border-top-color: var(--azul-escuro);">
+      <div class="fase-label" style="color: var(--azul-escuro);">Fase 2 · Q4 / 2026</div>
+      <h4>Conferência avançada + alertas</h4>
+      <ul>
+        <li>Conferência com base comercial e tributária</li>
+        <li>Evolução junto com o Hub de Pedidos</li>
+        <li>Alertas de potenciais no-show com base em NF's emitidas vs agendas confirmadas</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="beneficios-section">
+    <div class="beneficios-grid">
+      <div class="beneficio">
+        <div class="icon-num">1</div>
+        <h4>Visibilidade em tempo real</h4>
+        <p>Enxergue exatamente quais NF's estão associadas a quais demandas — eliminando zonas cegas.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon-num">2</div>
+        <h4>Agilidade no recebimento/h4>
+        <p>Processo mais rápido e menos dependente de validações manuais.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon-num">3</div>
+        <h4>Rastreabilidade completa</h4>
+        <p>Cada NF vinculada à sua demanda, do início ao fim.</p>
+      </div>
+    </div>
+    <div class="custos-box">
+      <h4>Custos para Assaí</h4>
+      <p>- Integração com ferramentas internas do Assaí para envio das NF's faturadas.</p>
+      <p>- Integração com ferramentas internas do Assaí para envio do vínculo de nota + agendamento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 9 — HUB DE PEDIDOS ========== -->
+<section class="slide" id="slide-9">
+  <div class="slide-marker"><span class="num">09</span> · Solução em destaque</div>
+  <h2>Hub de Pedidos — visibilidade da<br><span class="accent">carteira para o fornecedor</span>.</h2>
+  <p class="subtitle" style="margin-top:8px; max-width: 760px;">Visibilidade para fornecedor = menos erros, divergências e atrito no processo para Assaí.</p>
+
+  <div class="fases-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+    <div class="fase-box" style="border-top-color: var(--chumbo);">
+      <div class="fase-label" style="color: var(--chumbo);">Atual</div>
+      <h4>UX Fornecedor — Hoje</h4>
+      <ul>
+        <li>Visibilidade do status do pedido</li>
+        <li>Saldo por item do pedido</li>
+        <li>Gestão das agendas vinculadas aos pedidos</li>
+        <li>Exportação de relatórios de pedidos e itens</li>
+      </ul>
+    </div>
+    <div class="fase-box">
+      <div class="fase-label">Fase 1</div>
+      <h4>Atual + alertas e prioridade</h4>
+      <ul>
+        <li>Visibilidade de pedidos que sofreram alterações</li>
+        <li>Notificações em tempo real (status / composição)</li>
+        <li>Visibilidade de pedidos prioritários</li>
+        <li>Solicitação de cancelamento de pedido / saldo</li>
+      </ul>
+    </div>
+    <div class="fase-box" style="border-top-color: var(--azul-escuro);">
+      <div class="fase-label" style="color: var(--azul-escuro);">Fase 2</div>
+      <h4>Substituto do EDI</h4>
+      <ul>
+        <li>Conferência itens/valores/volume entre pedidos e NFs</li>
+        <li>Master data de cadastro de produtos</li>
+        <li>Hub como padrão de trânsito Assaí → Fornecedores</li>
+        <li>Piloto: Ambev, Unilever, Mondelez, SC Johnson, Melitta</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="beneficios-section">
+    <div class="beneficios-grid">
+      <div class="beneficio">
+        <div class="icon-num">1</div>
+        <h4>Menos envios errôneos</h4>
+        <p>Notificações de alteração facilitam o planejamento do fornecedor.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon-num">2</div>
+        <h4>Priorização efetiva</h4>
+        <p>Fornecedores priorizam o que o Assaí indica via sistema.</p>
+      </div>
+      <div class="beneficio">
+        <div class="icon-num">3</div>
+        <h4>Crítica antecipada</h4>
+        <p>Fornecedor indica via sistema o que não conseguirá entregar.</p>
+      </div>
+    </div>
+    <div class="custos-box">
+      <h4>Custos para Assaí</h4>
+      <p>Novas integrações para o ERP Assaí receber crítica de carteira (cancelamento de pedido / saldo pelo fornecedor).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 10 — APROVAÇÃO AUTOMÁTICA ========== -->
+<section class="slide" id="slide-10">
+  <div class="slide-marker"><span class="num">10</span> · Solução em destaque</div>
+  <h2><span class="accent">Aprovação automática</span> parametrizável.</h2>
+  <p class="subtitle" style="margin-top:8px; max-width: 760px;">Time de abastecimento fornece dados e define parâmetros para limitação, priorização e aprovação automática de agendas.</p>
+
+  <div class="aprovacao-fluxo">
+    <div class="fluxo-baseline">
+      <span class="badge">Baseline</span>
+      <strong>Volume de baseline → janelas fixas de cargas fechadas.</strong>
+      <span style="opacity:0.6; font-size:14px;">O fluxo abaixo trata do <b style="color:var(--laranja);">volume restante</b>.</span>
+    </div>
+    <div class="fluxo-tree">
+      <div class="fluxo-branch">
+        <h4>Fornecedor G · alto nível de serviço</h4>
+        <p>Solicitação de Agenda</p>
+        <div class="fluxo-decision">
+          Dentro dos parâmetros de aprovação automática?
+        </div>
+        <div class="fluxo-result">
+          <span class="result-tag auto">Sim → Auto</span>
+          <span class="result-tag manual">Não → Manual</span>
+        </div>
+      </div>
+      <div class="fluxo-branch">
+        <h4>Fornecedor P / M · baixo nível de serviço</h4>
+        <p>Solicitação de Agenda</p>
+        <div class="fluxo-decision">
+          Avaliação direta sem automação nesta fase.
+        </div>
+        <div class="fluxo-result">
+          <span class="result-tag manual">Aprovação Manual</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="premissas-evolucoes">
+    <div class="info-block">
+      <h4>Premissas (Q3 / 2026)</h4>
+      <ul>
+        <li>Parâmetros simples: por grupos de fornecedor e/ou automatizando o processo manual atual (consulta estoque em planilhas e ERP)</li>
+        <li>Requisito: upload recorrente (pelo menos diário) da cobertura de estoque</li>
+        <li>Em 2026, foco em iniciativas que não dependem de mudança de comportamento do fornecedor</li>
+      </ul>
+    </div>
+    <div class="info-block dark">
+      <h4>Evoluções futuras</h4>
+      <ul>
+        <li>Envio do pedido já considerando datas disponíveis para recebimento</li>
+        <li>Exigir confirmação do fornecedor X dias antes da agenda</li>
+        <li>Senha de agendamento gerada junto com o pedido (grupos específicos)</li>
+        <li>Inversão do fluxo: Assaí define carga e datas, fornecedor aprova</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 11 — CRONOGRAMA GERAL ========== -->
+<section class="slide" id="slide-11">
+  <div class="slide-marker"><span class="num">11</span> · Roadmap</div>
+  <h2>Cronograma das <span class="accent">soluções</span>.</h2>
+  <p class="subtitle" style="margin-top:8px;">Geração de valor no curto prazo, sem dependência de sistemas externos.</p>
+
+  <div class="crono-table-wrap">
+    <div class="crono-header">
+      <div>Solução</div>
+      <div>Q2 · 2026</div>
+      <div>Q3 · 2026</div>
+      <div>Q4 · 2026</div>
+      <div>H1 · 2027</div>
+      <div>H2 · 2027</div>
+    </div>
+
+    <div class="crono-row">
+      <div class="crono-row-label">Janelas por categoria</div>
+      <div class="crono-row-bars">
+        <div class="crono-bar span-q2-q3">Janelas por Categoria</div>
+      </div>
+    </div>
+
+    <div class="crono-row">
+      <div class="crono-row-label">Complexidade de carga</div>
+      <div class="crono-row-bars">
+        <div class="crono-bar span-q2-q3">Tempo de operação</div>
+      </div>
+    </div>
+
+    <div class="crono-row">
+      <div class="crono-row-label">Conferência NF × Pedido × Agendamento</div>
+      <div class="crono-row-bars">
+        <div class="crono-bar span-q3">Fase 1 — Conferência automática</div>
+        <div class="crono-bar phase2 span-q4">Fase 2 — Conferência avançada</div>
+      </div>
+    </div>
+
+    <div class="crono-row">
+      <div class="crono-row-label">Nova Carteira de Pedidos</div>
+      <div class="crono-row-bars">
+        <div class="crono-bar span-q4-2027">Fase 1 — Nova UX Fornecedor</div>
+        <div class="crono-bar phase2 span-2027">Fase 2 — Substituição do EDI¹</div>
+      </div>
+    </div>
+
+    <div class="crono-row">
+      <div class="crono-row-label">Aprovação Automática de Agendas</div>
+      <div class="crono-row-bars">
+        <div class="crono-bar span-q3">Fase 1 — Por fornecedor + estoque</div>
+        <div class="crono-bar phase2 span-q4">Fase 2 — Prioridade (a definir)</div>
+      </div>
+    </div>
+
+    <p class="crono-footer-note">¹ Lista sugerida para piloto: Colgate-Palmolive, Ambev, Unilever, Mondelez, Melitta, SC Johnson e M. Dias Branco.</p>
+  </div>
+</section>
+
+<!-- ========== SLIDE 12 — RESUMO ========== -->
+<section class="slide" id="slide-12">
+  <div class="slide-marker"><span class="num">12</span> · O que entregamos</div>
+  <h2>Em <span class="accent">2026</span>, transformamos<br>recebimento em <span class="accent">previsibilidade</span>.</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px;">
+    <div style="background: var(--branco); padding: 32px 24px; border-top: 4px solid var(--laranja);">
+      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">20</div>
+      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">dores mapeadas no fluxo de abastecimento</p>
+    </div>
+    <div style="background: var(--branco); padding: 32px 24px; border-top: 4px solid var(--laranja);">
+      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">7</div>
+      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">dores macro sintetizadas com o Time Assaí</p>
+    </div>
+    <div style="background: var(--preto); padding: 32px 24px; color: var(--branco); border-top: 4px solid var(--laranja);">
+      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">6</div>
+      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">soluções nstech endereçando essas dores em 2026</p>
+    </div>
+    <div style="background: var(--preto); padding: 32px 24px; color: var(--branco); border-top: 4px solid var(--laranja);">
+      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">3</div>
+      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">soluções já entrando em entrega (Q3/2026)</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px; padding: 32px; background: var(--branco); border-left: 4px solid var(--laranja);">
+    <h3 style="font-size: 14px; letter-spacing: 2px; color: var(--laranja); text-transform: uppercase; margin-bottom: 16px;">Próximos passos imediatos</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
+      <div>
+        <div style="font-weight: 900; color: var(--preto); font-size: 18px; margin-bottom: 4px;">Maio · Junho</div>
+        <p style="font-size: 14px; line-height: 1.4;">Homologação da <b>parametrização de complexidade</b> no CD 920 (Maracanaú) e início de rollout.</p>
+      </div>
+      <div>
+        <div style="font-weight: 900; color: var(--preto); font-size: 18px; margin-bottom: 4px;">Q2 · 2026</div>
+        <p style="font-size: 14px; line-height: 1.4;">Discovery de <b>condições comerciais do pedido</b> e definição da Fase 1 do <b>Hub de Pedidos</b>.</p>
+      </div>
+      <div>
+        <div style="font-weight: 900; color: var(--preto); font-size: 18px; margin-bottom: 4px;">Q3 · 2026</div>
+        <p style="font-size: 14px; line-height: 1.4;">Entrega da <b>aprovação automática</b> e <b>painel de conferência NF</b> — sem dependência de integrações externas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 13 — FINAL ========== -->
+<section class="slide final" id="slide-13">
+  <div class="slide-marker" style="color: rgba(255,255,255,0.4);"><span class="num" style="color: var(--laranja);">13</span> · Obrigado</div>
+  <div class="final-content">
+    <h1 class="final-title">
+      Controle absoluto<br>
+      e gestão da <span class="accent">previsibilidade.</span>
+    </h1>
+    <p class="final-sub">
+      Da percepção de controle limitado a um abastecimento previsível, automatizado e rastreável — começando agora.
+    </p>
+  </div>
+</section>
+
+<script>
+  // Navegação por teclado e botões
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  document.getElementById('totSlide').textContent = String(total).padStart(2, '0');
+
+  function getCurrentSlide() {
+    const scrollPos = window.scrollY + window.innerHeight / 2;
+    let current = 1;
+    slides.forEach((slide, i) => {
+      if (slide.offsetTop <= scrollPos) current = i + 1;
+    });
+    return current;
+  }
+
+  function updateCounter() {
+    const cur = getCurrentSlide();
+    document.getElementById('curSlide').textContent = String(cur).padStart(2, '0');
+  }
+
+  function navSlide(dir) {
+    const cur = getCurrentSlide();
+    const target = Math.max(1, Math.min(total, cur + dir));
+    const el = document.getElementById('slide-' + target);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  window.addEventListener('scroll', updateCounter);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); navSlide(1); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); navSlide(-1); }
+    if (e.key === 'Home') { e.preventDefault(); slides[0].scrollIntoView({ behavior: 'smooth' }); }
+    if (e.key === 'End') { e.preventDefault(); slides[total-1].scrollIntoView({ behavior: 'smooth' }); }
+  });
+
+  updateCounter();
+</script>
+
+</body>
+</html>
