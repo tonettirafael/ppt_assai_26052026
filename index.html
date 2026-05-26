@@ -17,7 +17,7 @@
     --cinza-bg: #F4F5F7;
     --azul-escuro: #000032;
     --branco: #FFFFFF;
-    --vermelho: #DC2626;
+    --vermelho: #dc26269c;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -199,7 +199,219 @@
   .capa-meta .label { font-size: 11px; letter-spacing: 2px; color: var(--cinza); text-transform: uppercase; }
   .capa-meta .value { font-size: 18px; font-weight: 700; }
 
-  /* === SLIDE 2 — STATUS QUO vs DESEJO === */
+  /* === SLIDE 2 — AGENDA === */
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+    max-width: 1100px;
+  }
+  .agenda-item {
+    background: var(--branco);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border-left: 4px solid var(--laranja);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+  }
+  .agenda-item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .agenda-num {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--laranja);
+    line-height: 1;
+    min-width: 60px;
+    letter-spacing: -2px;
+  }
+  .agenda-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .agenda-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--preto);
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+  .agenda-desc {
+    font-size: 13px;
+    color: var(--chumbo);
+    opacity: 0.75;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+  .agenda-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(66,68,73,0.12);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 1100px;
+  }
+  .agenda-footer .icon {
+    width: 32px; height: 32px;
+    background: var(--laranja);
+    color: var(--branco);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900;
+    font-size: 18px;
+  }
+  .agenda-footer .texto {
+    font-size: 14px;
+    color: var(--chumbo);
+    font-weight: 500;
+  }
+  .agenda-footer .texto b { color: var(--preto); font-weight: 700; }
+
+  /* === SLIDE 3 — LOGISTICS ADVANTAGE === */
+  .logistics-slide {
+    padding: 0;
+    background: var(--branco);
+  }
+  .logistics-top {
+    padding: 80px 8vw 40px;
+    background: var(--branco);
+  }
+  .logistics-top h2 {
+    font-size: clamp(32px, 3.6vw, 54px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--preto);
+    max-width: 1100px;
+  }
+  .logistics-subtitle {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--chumbo);
+  }
+  .logos-img-wrap {
+    margin-top: 48px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  .logos-grid-real {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 48px;
+    max-width: 1100px;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+  }
+  .logo-item {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    transition: transform 0.25s;
+  }
+  .logo-item:hover { transform: scale(1.06); }
+  .logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .logos-mais {
+    margin-top: 40px;
+    padding: 20px 28px;
+    background: var(--preto);
+    color: var(--branco);
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    border-left: 4px solid var(--laranja);
+    align-self: flex-start;
+  }
+  .logos-mais .plus {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--laranja);
+    line-height: 1;
+  }
+  .logos-mais .texto {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .logos-mais .texto b { color: var(--laranja); font-weight: 700; }
+
+  .logistics-bottom {
+    background: var(--laranja);
+    padding: 80px 8vw 80px;
+    position: relative;
+    margin-top: 24px;
+  }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+  .stat-circle {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: var(--preto);
+    color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    transition: transform 0.3s;
+  }
+  .stat-circle:hover { transform: translateY(-6px); }
+  .stat-number {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+    color: var(--branco);
+  }
+  .stat-label {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--branco);
+    opacity: 0.95;
+  }
+  .logistics-marker {
+    position: absolute;
+    top: 32px;
+    left: 8vw;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--preto);
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+  .logistics-marker .num {
+    color: var(--branco);
+    font-weight: 900;
+    opacity: 1;
+  }
+
+  /* === SLIDE 3 — STATUS QUO vs DESEJO === */
   .contraste-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -259,7 +471,61 @@
   .premissas li::before { content: '—'; position: absolute; left: 0; color: var(--laranja); font-weight: 700; }
   .premissas li b { color: var(--preto); }
 
-  /* === SLIDE 3 — FLUXO TNS ORDER (imagem) === */
+  /* === SLIDE 5 — FLUXO TNS ORDER (imagem) === */
+  .fluxo-switch {
+    margin-top: 24px;
+    display: inline-flex;
+    background: var(--preto);
+    padding: 4px;
+    border-radius: 100px;
+    position: relative;
+  }
+  .fluxo-switch button {
+    background: transparent;
+    border: none;
+    color: var(--branco);
+    padding: 10px 28px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 2;
+    opacity: 0.55;
+  }
+  .fluxo-switch button.active {
+    background: var(--laranja);
+    opacity: 1;
+  }
+  .fluxo-switch button:hover:not(.active) {
+    opacity: 0.85;
+  }
+  .fluxo-img-stack {
+    position: relative;
+    margin-top: 24px;
+  }
+  .fluxo-img-stack .fluxo-img-wrap {
+    margin-top: 0;
+  }
+  .fluxo-img-stack .fluxo-img-wrap.hidden {
+    display: none;
+  }
+  .fluxo-label-tobe {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 4px 10px;
+    background: var(--laranja);
+    color: var(--branco);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
   .fluxo-img-wrap {
     margin-top: 32px;
     background: var(--branco);
@@ -306,6 +572,7 @@
   .legenda-dot.priorizada { background: var(--laranja); }
   .legenda-dot.roadmap { background: var(--azul-escuro); }
   .legenda-dot.fora {background: var(--vermelho);}
+  .legenda-dot.resolve { background: #10B981; }
 
   .matriz {
     display: grid;
@@ -362,77 +629,175 @@
     border-left-color: var(--vermelho);
     font-weight: 500;
   }
+   /* Selo "JÁ RESOLVE" — aplicável a qualquer card */
+  .dor-card.resolve {
+    padding-top: 24px;
+  }
+  .dor-card.resolve::before {
+    content: '✓ JÁ RESOLVE';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #10B981;
+    color: var(--branco);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 3px 8px 3px 10px;
+    line-height: 1.2;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 6px rgba(16,185,129,0.35);
+    z-index: 2;
+  }
+  .dor-card.resolve {
+    box-shadow: inset 3px 0 0 #10B981, 0 0 0 1px rgba(16,185,129,0.25);
+    border-left-color: #10B981 !important;
+  }
   .dor-id {
     font-weight: 900;
     margin-right: 4px;
   }
 
-  /* === SLIDE 7 — DORES MACRO === */
-  .macro-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 32px;
+/* === SLIDE 7 — DORES MACRO (TABELA) === */
+  .macro-table {
     margin-top: 40px;
-  }
-  .macro-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .macro-item {
     background: var(--branco);
-    padding: 18px 20px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    border-left: 4px solid var(--laranja);
-    transition: all 0.2s;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
   }
-  .macro-item:hover { transform: translateX(4px); }
-  .macro-num {
-    font-weight: 900;
-    font-size: 28px;
-    color: var(--laranja);
-    line-height: 1;
-    min-width: 36px;
+  .macro-row {
+    display: grid;
+    grid-template-columns: 110px 2fr 130px 150px;
+    gap: 24px;
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(66,68,73,0.08);
+    align-items: center;
+    transition: background 0.2s;
   }
-  .macro-text {
+  .macro-row:not(.macro-header):hover { background: rgba(255,61,3,0.04); }
+  .macro-row:last-child { border-bottom: none; }
+ 
+  .macro-header {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 16px 24px;
+  }
+  .macro-header > div {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--branco);
+  }
+ 
+  .macro-dor {
     font-size: 14px;
     line-height: 1.4;
     color: var(--chumbo);
     font-weight: 500;
   }
-  .impactos-box {
+  .macro-dor b { color: var(--preto); font-weight: 700; }
+ 
+  .prio-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--laranja);
+    color: var(--branco);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    border-radius: 50%;
+  }
+  .prio-badge.empty {
+    background: transparent;
+    border: 2px dashed var(--cinza);
+    color: var(--cinza);
+    font-size: 22px;
+    font-weight: 300;
+  }
+ 
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(255,61,3,0.1);
+    color: var(--laranja);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-left: 3px solid var(--laranja);
+  }
+  .status-badge-hml {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(255, 3, 221, 0.1);
+    color: var(--laranja);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-left: 3px solid var(--laranja);
+  }
+  .status-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--laranja);
+    border-radius: 50%;
+    animation: status-pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes status-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.35; }
+  }
+ 
+  .impactos-strip {
+    margin-top: 32px;
     background: var(--preto);
     color: var(--branco);
-    padding: 32px;
-    align-self: start;
-    position: sticky;
-    top: 32px;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    align-items: center;
   }
-  .impactos-box h3 {
+  .impactos-strip h3 {
     color: var(--laranja);
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 20px;
   }
-  .impactos-box ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .impactos-box li {
-    font-size: 15px;
+  .impactos-strip ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+  .impactos-strip li {
+    font-size: 14px;
     font-weight: 500;
-    padding-left: 20px;
+    padding-left: 16px;
     position: relative;
-    line-height: 1.3;
   }
-  .impactos-box li::before {
+  .impactos-strip li::before {
     content: '';
     position: absolute;
-    left: 0; top: 8px;
-    width: 8px; height: 8px;
+    left: 0; top: 7px;
+    width: 6px; height: 6px;
     background: var(--laranja);
   }
-  .fonte { margin-top: 24px; font-size: 11px; opacity: 0.5; }
+  .fonte-strip {
+    margin-top: 16px;
+    font-size: 11px;
+    opacity: 0.55;
+  }
 
   /* === SLIDE 8 — SOLUÇÕES === */
   .solucoes-table {
@@ -481,6 +846,122 @@
     line-height: 1.3;
   }
   .solucao-time.discuss { background: var(--cinza); color: var(--chumbo); }
+
+  /* === SLIDE 4 — TIMELINE === */
+  .timeline-wrap {
+    margin-top: 56px;
+    padding-top: 24px;
+  }
+  .timeline-wrap > h3 {
+    font-size: 16px;
+    color: var(--laranja);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 700;
+  }
+  .timeline-horizontal {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    padding: 40px 0 16px;
+  }
+  .timeline-horizontal::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: var(--cinza);
+    z-index: 0;
+  }
+  .timeline-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+  }
+  .timeline-date {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--chumbo);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+  .timeline-dot {
+    width: 24px;
+    height: 24px;
+    background: var(--branco);
+    border: 3px solid var(--cinza);
+    border-radius: 50%;
+    margin-bottom: 16px;
+    transition: all 0.2s;
+  }
+  .timeline-step.done .timeline-dot {
+    background: var(--laranja);
+    border-color: var(--laranja);
+  }
+  .timeline-step.now .timeline-dot {
+    background: var(--branco);
+    border-color: var(--laranja);
+    border-width: 5px;
+    width: 28px;
+    height: 28px;
+    box-shadow: 0 0 0 6px rgba(255,61,3,0.18);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(255,61,3,0.18); }
+    50%      { box-shadow: 0 0 0 10px rgba(255,61,3,0.08); }
+  }
+  .timeline-step.done .timeline-date { color: var(--laranja); }
+  .timeline-step.now .timeline-date {
+    color: var(--branco);
+    background: var(--laranja);
+    padding: 3px 10px;
+    border-radius: 4px;
+    height: auto;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+  .timeline-card {
+    background: var(--branco);
+    padding: 16px 14px;
+    border-top: 3px solid var(--cinza);
+    width: 100%;
+    min-height: 96px;
+    text-align: left;
+  }
+  .timeline-step.done .timeline-card { border-top-color: var(--laranja); }
+  .timeline-step.now .timeline-card {
+    border-top-color: var(--laranja);
+    background: var(--preto);
+    color: var(--branco);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  }
+  .timeline-card-date {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--laranja);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .timeline-step.now .timeline-card-date { color: var(--laranja); }
+  .timeline-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+  }
 
   /* === SLIDE 9 — CRONOGRAMA PARAMETRIZAÇÃO === */
   .crono-vertical {
@@ -914,11 +1395,85 @@
   </div>
 </section>
 
-<!-- ========== SLIDE 2 — CONTEXTO ========== -->
+<!-- ========== SLIDE 2 — AGENDA ========== -->
 <section class="slide" id="slide-2">
-  <div class="slide-marker"><span class="num">02</span> · Contexto</div>
-  <h2>Na reunião de <span class="accent">08/04</span> decidimos juntos<br>mapear e priorizar dores e soluções.</h2>
+  <div class="slide-marker"><span class="num">02</span> · Agenda</div>
+  <h2>O que vamos <span class="accent">apresentar hoje.</span></h2>
+  <p class="subtitle" style="margin-top:12px;">Da prova de tração ao plano de execução — em seis blocos.</p>
 
+  <div class="agenda-grid">
+    <div class="agenda-item">
+      <span class="agenda-num">01</span>
+      <div class="agenda-content">
+        <span class="agenda-title">Efeito TNS</span>
+        <span class="agenda-desc">Empresas líderes que já desenvolvem a tese com a nstech.</span>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <span class="agenda-num">02</span>
+      <div class="agenda-content">
+        <span class="agenda-title">Contexto da Reunião</span>
+        <span class="agenda-desc">Status quo, desejo e premissas acordadas em 08/04.</span>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <span class="agenda-num">03</span>
+      <div class="agenda-content">
+        <span class="agenda-title">O Fluxo TNS Order</span>
+        <span class="agenda-desc">Visão do AS IS e TO BE.</span>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <span class="agenda-num">04</span>
+      <div class="agenda-content">
+        <span class="agenda-title">Diagnóstico — 20 Dores</span>
+        <span class="agenda-desc">Mapeamento ao longo do fluxo, com priorização visual.</span>
+      </div>
+    </div>
+    <div class="agenda-item">
+      <span class="agenda-num">05</span>
+      <div class="agenda-content">
+        <span class="agenda-title">Síntese — 7 Dores Macro</span>
+        <span class="agenda-desc">Consolidação com o Time de Abastecimento do Assaí.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="agenda-footer">
+    <span class="icon">→</span>
+    <span class="texto"><b>Objetivo:</b> sair desta reunião com alinhamento sobre prioridades e próximos passos.</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 3 — LOGISTICS ADVANTAGE ========== -->
+<section class="slide logistics-slide" id="slide-3">
+  <div class="logistics-top">
+    <div class="slide-marker" style="position:relative; top:auto; left:auto; margin-bottom:24px;"><span class="num">03</span> · Logistics Advantage</div>
+    <h2>Empresas líderes da América Latina já desenvolveram <span class="accent">Logistics Advantage</span> com a nstech</h2>
+    <p class="logistics-subtitle">Juntos fazendo o mundo melhor através da logística</p>
+
+    <div class="logos-grid-real">
+      <div class="logo-item"><img src="logos/ambev.png" alt="Ambev"></div>
+      <div class="logo-item"><img src="logos/coca-cola.png" alt="Coca-Cola"></div>
+      <div class="logo-item"><img src="logos/pg.png" alt="P&G"></div>
+      <div class="logo-item"><img src="logos/mondelez.png" alt="Mondelez International"></div>
+      <div class="logo-item"><img src="logos/piracanjuba.png" alt="Piracanjuba"></div>
+      <div class="logo-item"><img src="logos/unilever.png" alt="Unilever"></div>
+      <div class="logo-item"><img src="logos/ype.png" alt="Ypê"></div>
+    </div>
+
+    <div class="logos-mais">
+      <span class="plus">+</span>
+      <span class="texto">E <b>dezenas de outras</b> líderes da América Latina<br>nos setores de varejo, indústria, logística e bens de consumo.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SLIDE 4 — CONTEXTO ========== -->
+<section class="slide" id="slide-4">
+  <div class="slide-marker"><span class="num">04</span> · Contexto</div>
+  <h2>Na reunião de <span class="accent">08/04</span> decidimos juntos<br>mapear e priorizar dores e soluções.</h2>
+ 
   <div class="contraste-wrap">
     <div class="contraste-card status">
       <div class="tag">Status Quo</div>
@@ -930,7 +1485,7 @@
       <div class="quote">"Controle absoluto e gestão da previsibilidade."</div>
     </div>
   </div>
-
+ 
   <div class="premissas">
     <h3>Premissas a partir da reunião</h3>
     <ul>
@@ -939,527 +1494,212 @@
       <li><b>Longo prazo:</b> Assaí quer entender o fluxo ideal e possível.</li>
     </ul>
   </div>
+ 
+  <div class="timeline-wrap">
+    <h3>Linha do tempo</h3>
+    <div class="timeline-horizontal">
+      <div class="timeline-step done">
+        <div class="timeline-date">08/04</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-card-date">08 ABR</div>
+          <div class="timeline-card-title">Agenda executiva</div>
+        </div>
+      </div>
+      <div class="timeline-step done">
+        <div class="timeline-date">15/04</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-card-date">15 ABR</div>
+          <div class="timeline-card-title">Workshop com o time</div>
+        </div>
+      </div>
+      <div class="timeline-step done">
+        <div class="timeline-date">29/04</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-card-date">29 ABR</div>
+          <div class="timeline-card-title">Início implantação janela por categoria</div>
+        </div>
+      </div>
+      <div class="timeline-step done">
+        <div class="timeline-date">22/05</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-card-date">20 MAI</div>
+          <div class="timeline-card-title">Tempo de operação - HML CD 920</div>
+        </div>
+      </div>
+      <div class="timeline-step now">
+        <div class="timeline-date">Atual · 26/05</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-card-date">26 MAI</div>
+          <div class="timeline-card-title">Validação do trabalho e próximos passos</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ========== SLIDE 3 — FLUXO TNS ORDER ========== -->
-<section class="slide" id="slide-3">
-  <div class="slide-marker"><span class="num">03</span> · O Fluxo</div>
+<!-- ========== SLIDE 5 — FLUXO TNS ORDER ========== -->
+<section class="slide" id="slide-5">
+  <div class="slide-marker"><span class="num">05</span> · O Fluxo</div>
   <h2>Fluxo de abastecimento com <span class="accent">TNS Order</span>.</h2>
   <p class="subtitle" style="margin-top:8px;">Da emissão do pedido ao check-out do caminhão na doca.</p>
 
-    <div class="fluxo-img-wrap">
-    <img src="fluxo_tns_order.svg" alt="Fluxo de abastecimento com TNS Order — diferenciação entre jornada do varejo (etapas 1, 5, 6, 8) e jornada do fornecedor (etapas 2, 3, 4, 7).">
+  <div class="fluxo-switch" role="tablist" aria-label="Comparar fluxos AS IS e TO BE">
+    <button type="button" class="active" data-target="asis" role="tab" aria-selected="true">AS IS</button>
+    <button type="button" data-target="tobe" role="tab" aria-selected="false">TO BE</button>
+  </div>
+
+  <div class="fluxo-img-stack">
+    <div class="fluxo-img-wrap" data-view="asis">
+      <img src="fluxo_tns_order.svg" alt="Fluxo AS IS de abastecimento com TNS Order — diferenciação entre jornada do varejo (etapas 1, 5, 6, 8) e jornada do fornecedor (etapas 2, 3, 4, 7).">
     </div>
+    <div class="fluxo-img-wrap hidden" data-view="tobe">
+      <img src="fluxo_tns_order_to_be.svg" alt="Fluxo TO BE de abastecimento com TNS Order — visão futura do processo otimizado.">
+    </div>
+  </div>
+
   <p class="small" style="margin-top:24px;">→ Edição de agenda (data / pedidos / itens) é possível ao longo do fluxo.</p>
 </section>
 
-<!-- ========== SLIDE 4 — MATRIZ DE 20 DORES ========== -->
-<section class="slide" id="slide-4">
-  <div class="slide-marker"><span class="num">04</span> · Diagnóstico</div>
+<!-- ========== SLIDE 6 — MATRIZ DE 20 DORES ========== -->
+<section class="slide" id="slide-6">
+  <div class="slide-marker"><span class="num">06</span> · Diagnóstico</div>
   <h2>Mapeamos <span class="accent">20 dores</span> ao longo do fluxo,<br>com Planejamento de Capacidade como 1º bloco.</h2>
 
   <div class="matriz-legenda">
-    <div class="legenda-item"><span class="legenda-dot priorizada"></span> <b style="color:var(--laranja);">7 priorizadas</b> — maior potencial de resultado</div>
-    <div class="legenda-item"><span class="legenda-dot roadmap"></span> <b style="color:var(--azul-escuro);">11 em roadmap</b> — solução disponível ou planejada</div>
-    <div class="legenda-item"><span class="legenda-dot default"></span> Demais dores mapeadas</div>
-    <div class="legenda-item"><span class="legenda-dot fora"></span> Não endereça</div>
+    <div class="legenda-item"><span class="legenda-dot priorizada"></span> <b style="color:var(--laranja);">7 priorizadas</b></div>
+    <div class="legenda-item"><span class="legenda-dot resolve"></span> <b style="color:#10B981;">2 solução existente</b></div>
+    <div class="legenda-item"><span class="legenda-dot roadmap"></span> <b style="color:var(--azul-escuro);">6 em roadmap</b></div>
+    <div class="legenda-item"><span class="legenda-dot default"></span> 6 não priorizadas</div>
+    <div class="legenda-item"><span class="legenda-dot fora"></span>1 não endereça</div>
   </div>
 
   <div class="matriz">
     <div class="matriz-col">
       <div class="matriz-col-header">Planejamento de Capacidade</div>
-      <div class="dor-card"><span class="dor-id">D1.</span> Capacidade de recebimento estática</div>
-      <div class="dor-card roadmap"><span class="dor-id">D2.</span> Falta de limitação por categoria/turno</div>
+      <div class="dor-card"><span class="dor-id"></span> Capacidade de recebimento estática</div>
+      <div class="dor-card priorizada resolve"><span class="dor-id"></span> Falta de limitação por categoria/turno</div>
     </div>
     <div class="matriz-col">
       <div class="matriz-col-header">Previsibilidade (Comercial)</div>
-      <div class="dor-card priorizada"><span class="dor-id">D3.</span> Ausência de visibilidade prévia de volume e timing comerciais</div>
+      <div class="dor-card priorizada"><span class="dor-id"></span> Ausência de visibilidade prévia de volume e timing comerciais</div>
       <div class="dor-card"><span class="dor-id">D4.</span> Ausência de lead time formal/acordado</div>
     </div>
     <div class="matriz-col">
       <div class="matriz-col-header">Emissão do Pedido</div>
-      <div class="dor-card roadmap"><span class="dor-id">D5.</span> Pedido sem data de início/fim de recebimento</div>
-      <div class="dor-card roadmap"><span class="dor-id">D6.</span> Produto fora de linha / carteira "suja"</div>
+      <div class="dor-card roadmap resolve"><span class="dor-id"></span> Pedido sem data de início/fim de recebimento</div>
+      <div class="dor-card roadmap"><span class="dor-id"></span> Produto fora de linha / carteira "suja"</div>
     </div>
     <div class="matriz-col">
       <div class="matriz-col-header">Planejamento do Fornecedor</div>
-      <div class="dor-card"><span class="dor-id">D7.</span> Logística do fornecedor sem informação do pedido</div>
-      <div class="dor-card roadmap"><span class="dor-id">D8.</span> Fornecedor sem visibilidade da carteira</div>
-      <div class="dor-card roadmap"><span class="dor-id">D9.</span> Priorização inexistente (externa)</div>
-      <div class="dor-card fora"><span class="dor-id">D10.</span> Fornecedor posterga Assaí</div>
+      <div class="dor-card"><span class="dor-id"></span> Logística do fornecedor sem informação do pedido</div>
+      <div class="dor-card priorizada"><span class="dor-id"></span> Fornecedor sem visibilidade da carteira</div>
+      <div class="dor-card priorizada"><span class="dor-id"></span> Priorização inexistente (externa)</div>
+      <div class="dor-card fora"><span class="dor-id"></span> Fornecedor posterga Assaí</div>
     </div>
     <div class="matriz-col">
       <div class="matriz-col-header">Solicitação de Agendamento</div>
-      <div class="dor-card roadmap"><span class="dor-id">D11.</span> Carga agendada ≠ carga enviada</div>
-      <div class="dor-card"><span class="dor-id">D12.</span> Composição multi-stop desconhecida</div>
-      <div class="dor-card"><span class="dor-id">D13.</span> Alocação de estoque e restrição (modelo Unilever)</div>
-      <div class="dor-card roadmap"><span class="dor-id">D14.</span> Fornecedores que não agendam (lojas)</div>
+      <div class="dor-card roadmap"><span class="dor-id"></span> Carga agendada ≠ carga enviada</div>
+      <div class="dor-card"><span class="dor-id"></span> Composição multi-stop desconhecida</div>
+      <div class="dor-card"><span class="dor-id"></span> Alocação de estoque e restrição (modelo Unilever)</div>
+      <div class="dor-card priorizada"><span class="dor-id"></span> Fornecedores que não agendam (lojas)</div>
     </div>
     <div class="matriz-col">
       <div class="matriz-col-header">Aprovação da Solicitação</div>
-      <div class="dor-card roadmap"><span class="dor-id">D15.</span> Muito trabalho manual na aprovação</div>
-      <div class="dor-card roadmap"><span class="dor-id">D16.</span> NF não atrelada ao agendamento</div>
-      <div class="dor-card"><span class="dor-id">D17.</span> Falta confirmação proativa (no-show)</div>
+      <div class="dor-card roadmap"><span class="dor-id"></span> Muito trabalho manual na aprovação</div>
+      <div class="dor-card roadmap"><span class="dor-id"></span> NF não atrelada ao agendamento</div>
+      <div class="dor-card"><span class="dor-id"></span> Falta confirmação proativa (no-show)</div>
     </div>
     <div class="matriz-col">
       <div class="matriz-col-header">Chegada / Pós-Recebimento</div>
-      <div class="dor-card roadmap"><span class="dor-id">D18.</span> Divergências detectadas só na chegada</div>
-      <div class="dor-card priorizada"><span class="dor-id">D19.</span> NF baixada em outro pedido / "tampão"</div>
-      <div class="dor-card roadmap"><span class="dor-id">D20.</span> Sem visibilidade de produtividade</div>
+      <div class="dor-card priorizada"><span class="dor-id"></span> Divergências detectadas só na chegada</div>
+      <div class="dor-card priorizada"><span class="dor-id"></span> NF baixada em outro pedido / "tampão"</div>
+      <div class="dor-card roadmap resolve"><span class="dor-id"></span> Sem visibilidade de produtividade</div>
     </div>
   </div>
 </section>
 
-<!-- ========== SLIDE 5 — 7 DORES MACRO ========== -->
-<section class="slide" id="slide-5">
-  <div class="slide-marker"><span class="num">05</span> · Síntese</div>
-  <h2>Sintetizamos em <span class="accent">sete dores macro</span><br>com o Time de Abastecimento do Assaí.</h2>
-
-  <div class="macro-grid">
-    <div class="macro-list">
-      <div class="macro-item">
-        <span class="macro-num">01</span>
-        <span class="macro-text">Planejamento de capacidade <b>não reflete a complexidade</b> de diferentes cargas (ex: pneus × pallets monoproduto).</span>
-      </div>
-      <div class="macro-item">
-        <span class="macro-num">02</span>
-        <span class="macro-text">Logística Assaí tem <b>pouca previsibilidade</b> de volumes e timings comerciais (pré-pedido).</span>
-      </div>
-      <div class="macro-item">
-        <span class="macro-num">03</span>
-        <span class="macro-text">Pedidos transitam com <b>divergência</b> de condições comerciais, tributárias ou cadastro de produtos.</span>
-      </div>
-      <div class="macro-item">
-        <span class="macro-num">04</span>
-        <span class="macro-text"><b>Divergências na visão da carteira</b> entre Assaí e Fornecedor.</span>
-      </div>
-      <div class="macro-item">
-        <span class="macro-num">05</span>
-        <span class="macro-text"><b>Fornecedores que não agendam.</b></span>
-      </div>
-      <div class="macro-item">
-        <span class="macro-num">06</span>
-        <span class="macro-text">Aprovação de agendas é <b>manual</b> — time focado no operacional, erros inevitáveis e baixa governança.</span>
-      </div>
-      <div class="macro-item">
-        <span class="macro-num">07</span>
-        <span class="macro-text">Divergências entre <b>agendamento × pedido × NF × carga</b> são detectadas apenas na chegada.</span>
-      </div>
-    </div>
-
-    <div class="impactos-box">
-      <h3>Impactos</h3>
-      <ul>
-        <li>Ociosidade ou overbooking</li>
-        <li>Ruptura</li>
-        <li>Trabalho manual = erros</li>
-        <li>Menor produtividade</li>
-        <li>Dificuldade de priorização</li>
-        <li>Demora na resposta ao fornecedor</li>
-      </ul>
-      <p class="fonte">Fonte: workshop com Time de Abastecimento do Assaí em 15/04/26.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SLIDE 6 — SOLUÇÕES ========== -->
-<section class="slide" id="slide-6">
-  <div class="slide-marker"><span class="num">06</span> · Soluções</div>
-  <h2>Resolvemos <span class="accent">6 das 7 dores</span> macro<br>ainda em <span class="accent">2026</span>.</h2>
-
-  <div class="solucoes-table">
-    <div class="solucao-row header">
-      <div>#</div>
-      <div>Dor Macro</div>
-      <div>Solução nstech</div>
-      <div style="text-align:center;">Timeline</div>
-    </div>
-    <div class="solucao-row">
-      <div class="solucao-num">01</div>
-      <div class="solucao-dor">Capacidade não reflete complexidade de cargas</div>
-      <div class="solucao-sol">Parametrização de complexidade por categoria de recebimento</div>
-      <div class="solucao-time">Em homologação<br>CD 920 — Maracanaú</div>
-    </div>
-    <div class="solucao-row">
-      <div class="solucao-num">02</div>
-      <div class="solucao-dor">Pouca previsibilidade de volumes/timings comerciais</div>
-      <div class="solucao-sol" style="opacity:0.6;">Solução a discutir</div>
-      <div class="solucao-time discuss">Discovery<br>Q2 / 2026</div>
-    </div>
-    <div class="solucao-row">
-      <div class="solucao-num">03</div>
-      <div class="solucao-dor">Divergência de condições comerciais/tributárias</div>
-      <div class="solucao-sol">Condições comerciais do pedido</div>
-      <div class="solucao-time">Hub de Pedidos (substituto EDI) — pago pelo Fornecedor</div>
-    </div>
-    <div class="solucao-row">
-      <div class="solucao-num">04</div>
-      <div class="solucao-dor">Divergências na visão da carteira</div>
-      <div class="solucao-sol">Hub de Pedidos (substituto EDI) — pago pelo Fornecedor</div>
-      <div class="solucao-time">H2/2026<br>→ H1/2027</div>
-    </div>
-    <div class="solucao-row">
-      <div class="solucao-num">05</div>
-      <div class="solucao-dor">Fornecedores que não agendam</div>
-      <div class="solucao-sol" style="opacity:0.6;">Solução atual - Registro de carga sem agendamento </div>
-      <div class="solucao-time discuss">Discovery<br>Q2 / 2026</div>
-    </div>
-    <div class="solucao-row">
-      <div class="solucao-num">06</div>
-      <div class="solucao-dor">Aprovação manual de agendas</div>
-      <div class="solucao-sol">Parametrização de regras por fornecedor + aprovação automática</div>
-      <div class="solucao-time">Q3 / 2026</div>
-    </div>
-    <div class="solucao-row">
-      <div class="solucao-num">07</div>
-      <div class="solucao-dor">Divergências detectadas só na chegada</div>
-      <div class="solucao-sol">Painel de conferência NF × Pedido × Agendamento</div>
-      <div class="solucao-time">Q3 / 2026</div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SLIDE 7 — CRONOGRAMA PARAMETRIZAÇÃO ========== -->
+<!-- ========== SLIDE 7 — 7 DORES MACRO ========== -->
 <section class="slide" id="slide-7">
-  <div class="slide-marker"><span class="num">07</span> · Em andamento</div>
-  <h2><span class="accent">Parametrização de capacidade</span><br>por categoria — trabalho já iniciado.</h2>
-  <p class="subtitle" style="margin-top:8px;">Funcionalidade apresentada ao time de abastecimento.</p>
-
-  <div class="crono-vertical">
-    <div class="crono-item">
-      <span class="crono-date">29 · Abr</span>
-      <span class="crono-text">Apresentação da funcionalidade</span>
+  <div class="slide-marker"><span class="num">07</span> · Síntese</div>
+  <h2>Sintetizamos em <span class="accent">sete dores macro</span><br>com o Time de Abastecimento do Assaí.</h2>
+ 
+  <div class="macro-table">
+    <div class="macro-row macro-header">
+      <div>Prioridade Assaí</div>
+      <div>Dor Macro</div>
+      <div>Prioridade nstech</div>
+      <div>Status</div>
     </div>
-    <div class="crono-item">
-      <span class="crono-date">05 · Mai</span>
-      <span class="crono-text">Alinhamento com time de abastecimento para <b>definição de setor</b></span>
+ 
+    <div class="macro-row">
+      <div><span class="prio-badge">1</span></div>
+      <div class="macro-dor">Planejamento de capacidade <b>não reflete a complexidade</b> de diferentes cargas (ex: pneus × pallets monoproduto).</div>
+      <div><span class="prio-badge empty">1</span></div>
+      <div><span class="status-badge">Homologação</span></div>
     </div>
-    <div class="crono-item">
-      <span class="crono-date">Até 22 · Mai</span>
-      <span class="crono-text">Preparação do ambiente de homologação</span>
+ 
+    <div class="macro-row">
+      <div><span class="prio-badge">2</span></div>
+      <div class="macro-dor">Logística Assaí tem <b>pouca previsibilidade</b> de volumes e timings comerciais (pré-pedido).</div>
+      <div><span class="prio-badge empty">4</span></div>
+      <div><span class="status-badge">Discovery</span></div>
     </div>
-    <div class="crono-item">
-      <span class="crono-date">25 · Mai → 05 · Jun</span>
-      <span class="crono-text"><b>Homologação com time Assaí</b></span>
+ 
+    <div class="macro-row">
+      <div><span class="prio-badge">3</span></div>
+      <div class="macro-dor">Pedidos transitam com <b>divergência</b> de condições comerciais, tributárias ou cadastro de produtos.</div>
+      <div><span class="prio-badge empty">7</span></div>
+      <div><span class="status-badge">Roadmap</span></div>
     </div>
-    <div class="crono-item">
-      <span class="crono-date">08 · Jun</span>
-      <span class="crono-text">Início rollout (a refinar pós-homologação)</span>
+ 
+    <div class="macro-row">
+      <div><span class="prio-badge">4</span></div>
+      <div class="macro-dor"><b>Divergências na visão da carteira</b> entre Assaí e Fornecedor.</div>
+      <div><span class="prio-badge empty">6</span></div>
+      <div><span class="status-badge">Roadmap</span></div>
+    </div>
+ 
+    <div class="macro-row">
+      <div><span class="prio-badge">5</span></div>
+      <div class="macro-dor"><b>Fornecedores que não agendam.</b></div>
+      <div><span class="prio-badge empty">5</span></div>
+      <div><span class="status-badge">Discovery</span></div>
+    </div>
+ 
+    <div class="macro-row">
+      <div><span class="prio-badge">6</span></div>
+      <div class="macro-dor">Aprovação de agendas é <b>manual</b> — time focado no operacional, erros inevitáveis e baixa governança.</div>
+      <div><span class="prio-badge empty">3</span></div>
+      <div><span class="status-badge">Em análise</span></div>
+    </div>
+ 
+    <div class="macro-row">
+      <div><span class="prio-badge">7</span></div>
+      <div class="macro-dor">Divergências entre <b>agendamento × pedido × NF × carga</b> são detectadas apenas na chegada.</div>
+      <div><span class="prio-badge empty">2</span></div>
+      <div><span class="status-badge">Em análise</span></div>
     </div>
   </div>
+ 
+  <div class="impactos-strip">
+    <h3>Impactos</h3>
+    <ul>
+      <li>Ociosidade ou overbooking</li>
+      <li>Ruptura</li>
+      <li>Trabalho manual = erros</li>
+      <li>Menor produtividade</li>
+      <li>Dificuldade de priorização</li>
+      <li>Demora na resposta ao fornecedor</li>
+    </ul>
+  </div>
+  <p class="fonte-strip">Fonte: workshop com Time de Abastecimento do Assaí em 15/04/26.</p>
 </section>
 
-<!-- ========== SLIDE 8 — PAINEL NF ========== -->
-<section class="slide" id="slide-8">
-  <div class="slide-marker"><span class="num">08</span> · Solução em destaque</div>
-  <h2>Painel de <span class="accent">conferência de notas fiscais.</span></h2>
-  <p class="subtitle" style="margin-top:8px; max-width: 760px;">Vínculo automático de NFs às demandas para transformar recebimento em controle e previsibilidade.</p>
-
-  <div class="duas-colunas">
-    <div class="col-card dark">
-      <div class="col-tag">Dores que resolve</div>
-      <h3>O que está custando hoje</h3>
-      <ul>
-        <li>Baixa visibilidade operacional, divergências conhecidas tardiamente</li>
-        <li>Retrabalho na conferência manual de NFs</li>
-        <li>Lentidão no recebimento de outras mercadorias</li>
-        <li>Falta de rastreabilidade entre NF entregue e pedido</li>
-      </ul>
-    </div>
-    <div class="col-card orange">
-      <div class="col-tag">Solução Trizy</div>
-      <h3>Painel de conferência</h3>
-      <ul>
-        <li>Vincula NF a Demanda automaticamente</li>
-        <li>Confere dados base: Pedido, EAN, quantidades, peso, data da agenda</li>
-        <li>Prioriza NF's para conferência antecipada à data da agenda</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="fases-grid">
-    <div class="fase-box">
-      <div class="fase-label">Fase 1 · Q3 / 2026</div>
-      <h4>Vínculo automático + conferência base</h4>
-      <ul>
-        <li>NF ↔ Demanda automático</li>
-        <li>Conferência de dados base (Pedido, EAN, qtd, peso, data)</li>
-        <li>Priorização para conferência antecipada</li>
-      </ul>
-    </div>
-    <div class="fase-box" style="border-top-color: var(--azul-escuro);">
-      <div class="fase-label" style="color: var(--azul-escuro);">Fase 2 · Q4 / 2026</div>
-      <h4>Conferência avançada + alertas</h4>
-      <ul>
-        <li>Conferência com base comercial e tributária</li>
-        <li>Evolução junto com o Hub de Pedidos</li>
-        <li>Alertas de potenciais no-show com base em NF's emitidas vs agendas confirmadas</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="beneficios-section">
-    <div class="beneficios-grid">
-      <div class="beneficio">
-        <div class="icon-num">1</div>
-        <h4>Visibilidade em tempo real</h4>
-        <p>Enxergue exatamente quais NF's estão associadas a quais demandas — eliminando zonas cegas.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon-num">2</div>
-        <h4>Agilidade no recebimento/h4>
-        <p>Processo mais rápido e menos dependente de validações manuais.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon-num">3</div>
-        <h4>Rastreabilidade completa</h4>
-        <p>Cada NF vinculada à sua demanda, do início ao fim.</p>
-      </div>
-    </div>
-    <div class="custos-box">
-      <h4>Custos para Assaí</h4>
-      <p>- Integração com ferramentas internas do Assaí para envio das NF's faturadas.</p>
-      <p>- Integração com ferramentas internas do Assaí para envio do vínculo de nota + agendamento.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SLIDE 9 — HUB DE PEDIDOS ========== -->
-<section class="slide" id="slide-9">
-  <div class="slide-marker"><span class="num">09</span> · Solução em destaque</div>
-  <h2>Hub de Pedidos — visibilidade da<br><span class="accent">carteira para o fornecedor</span>.</h2>
-  <p class="subtitle" style="margin-top:8px; max-width: 760px;">Visibilidade para fornecedor = menos erros, divergências e atrito no processo para Assaí.</p>
-
-  <div class="fases-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-    <div class="fase-box" style="border-top-color: var(--chumbo);">
-      <div class="fase-label" style="color: var(--chumbo);">Atual</div>
-      <h4>UX Fornecedor — Hoje</h4>
-      <ul>
-        <li>Visibilidade do status do pedido</li>
-        <li>Saldo por item do pedido</li>
-        <li>Gestão das agendas vinculadas aos pedidos</li>
-        <li>Exportação de relatórios de pedidos e itens</li>
-      </ul>
-    </div>
-    <div class="fase-box">
-      <div class="fase-label">Fase 1</div>
-      <h4>Atual + alertas e prioridade</h4>
-      <ul>
-        <li>Visibilidade de pedidos que sofreram alterações</li>
-        <li>Notificações em tempo real (status / composição)</li>
-        <li>Visibilidade de pedidos prioritários</li>
-        <li>Solicitação de cancelamento de pedido / saldo</li>
-      </ul>
-    </div>
-    <div class="fase-box" style="border-top-color: var(--azul-escuro);">
-      <div class="fase-label" style="color: var(--azul-escuro);">Fase 2</div>
-      <h4>Substituto do EDI</h4>
-      <ul>
-        <li>Conferência itens/valores/volume entre pedidos e NFs</li>
-        <li>Master data de cadastro de produtos</li>
-        <li>Hub como padrão de trânsito Assaí → Fornecedores</li>
-        <li>Piloto: Ambev, Unilever, Mondelez, SC Johnson, Melitta</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="beneficios-section">
-    <div class="beneficios-grid">
-      <div class="beneficio">
-        <div class="icon-num">1</div>
-        <h4>Menos envios errôneos</h4>
-        <p>Notificações de alteração facilitam o planejamento do fornecedor.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon-num">2</div>
-        <h4>Priorização efetiva</h4>
-        <p>Fornecedores priorizam o que o Assaí indica via sistema.</p>
-      </div>
-      <div class="beneficio">
-        <div class="icon-num">3</div>
-        <h4>Crítica antecipada</h4>
-        <p>Fornecedor indica via sistema o que não conseguirá entregar.</p>
-      </div>
-    </div>
-    <div class="custos-box">
-      <h4>Custos para Assaí</h4>
-      <p>Novas integrações para o ERP Assaí receber crítica de carteira (cancelamento de pedido / saldo pelo fornecedor).</p>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SLIDE 10 — APROVAÇÃO AUTOMÁTICA ========== -->
-<section class="slide" id="slide-10">
-  <div class="slide-marker"><span class="num">10</span> · Solução em destaque</div>
-  <h2><span class="accent">Aprovação automática</span> parametrizável.</h2>
-  <p class="subtitle" style="margin-top:8px; max-width: 760px;">Time de abastecimento fornece dados e define parâmetros para limitação, priorização e aprovação automática de agendas.</p>
-
-  <div class="aprovacao-fluxo">
-    <div class="fluxo-baseline">
-      <span class="badge">Baseline</span>
-      <strong>Volume de baseline → janelas fixas de cargas fechadas.</strong>
-      <span style="opacity:0.6; font-size:14px;">O fluxo abaixo trata do <b style="color:var(--laranja);">volume restante</b>.</span>
-    </div>
-    <div class="fluxo-tree">
-      <div class="fluxo-branch">
-        <h4>Fornecedor G · alto nível de serviço</h4>
-        <p>Solicitação de Agenda</p>
-        <div class="fluxo-decision">
-          Dentro dos parâmetros de aprovação automática?
-        </div>
-        <div class="fluxo-result">
-          <span class="result-tag auto">Sim → Auto</span>
-          <span class="result-tag manual">Não → Manual</span>
-        </div>
-      </div>
-      <div class="fluxo-branch">
-        <h4>Fornecedor P / M · baixo nível de serviço</h4>
-        <p>Solicitação de Agenda</p>
-        <div class="fluxo-decision">
-          Avaliação direta sem automação nesta fase.
-        </div>
-        <div class="fluxo-result">
-          <span class="result-tag manual">Aprovação Manual</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="premissas-evolucoes">
-    <div class="info-block">
-      <h4>Premissas (Q3 / 2026)</h4>
-      <ul>
-        <li>Parâmetros simples: por grupos de fornecedor e/ou automatizando o processo manual atual (consulta estoque em planilhas e ERP)</li>
-        <li>Requisito: upload recorrente (pelo menos diário) da cobertura de estoque</li>
-        <li>Em 2026, foco em iniciativas que não dependem de mudança de comportamento do fornecedor</li>
-      </ul>
-    </div>
-    <div class="info-block dark">
-      <h4>Evoluções futuras</h4>
-      <ul>
-        <li>Envio do pedido já considerando datas disponíveis para recebimento</li>
-        <li>Exigir confirmação do fornecedor X dias antes da agenda</li>
-        <li>Senha de agendamento gerada junto com o pedido (grupos específicos)</li>
-        <li>Inversão do fluxo: Assaí define carga e datas, fornecedor aprova</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SLIDE 11 — CRONOGRAMA GERAL ========== -->
-<section class="slide" id="slide-11">
-  <div class="slide-marker"><span class="num">11</span> · Roadmap</div>
-  <h2>Cronograma das <span class="accent">soluções</span>.</h2>
-  <p class="subtitle" style="margin-top:8px;">Geração de valor no curto prazo, sem dependência de sistemas externos.</p>
-
-  <div class="crono-table-wrap">
-    <div class="crono-header">
-      <div>Solução</div>
-      <div>Q2 · 2026</div>
-      <div>Q3 · 2026</div>
-      <div>Q4 · 2026</div>
-      <div>H1 · 2027</div>
-      <div>H2 · 2027</div>
-    </div>
-
-    <div class="crono-row">
-      <div class="crono-row-label">Janelas por categoria</div>
-      <div class="crono-row-bars">
-        <div class="crono-bar span-q2-q3">Janelas por Categoria</div>
-      </div>
-    </div>
-
-    <div class="crono-row">
-      <div class="crono-row-label">Complexidade de carga</div>
-      <div class="crono-row-bars">
-        <div class="crono-bar span-q2-q3">Tempo de operação</div>
-      </div>
-    </div>
-
-    <div class="crono-row">
-      <div class="crono-row-label">Conferência NF × Pedido × Agendamento</div>
-      <div class="crono-row-bars">
-        <div class="crono-bar span-q3">Fase 1 — Conferência automática</div>
-        <div class="crono-bar phase2 span-q4">Fase 2 — Conferência avançada</div>
-      </div>
-    </div>
-
-    <div class="crono-row">
-      <div class="crono-row-label">Nova Carteira de Pedidos</div>
-      <div class="crono-row-bars">
-        <div class="crono-bar span-q4-2027">Fase 1 — Nova UX Fornecedor</div>
-        <div class="crono-bar phase2 span-2027">Fase 2 — Substituição do EDI¹</div>
-      </div>
-    </div>
-
-    <div class="crono-row">
-      <div class="crono-row-label">Aprovação Automática de Agendas</div>
-      <div class="crono-row-bars">
-        <div class="crono-bar span-q3">Fase 1 — Por fornecedor + estoque</div>
-        <div class="crono-bar phase2 span-q4">Fase 2 — Prioridade (a definir)</div>
-      </div>
-    </div>
-
-    <p class="crono-footer-note">¹ Lista sugerida para piloto: Colgate-Palmolive, Ambev, Unilever, Mondelez, Melitta, SC Johnson e M. Dias Branco.</p>
-  </div>
-</section>
-
-<!-- ========== SLIDE 12 — RESUMO ========== -->
-<section class="slide" id="slide-12">
-  <div class="slide-marker"><span class="num">12</span> · O que entregamos</div>
-  <h2>Em <span class="accent">2026</span>, transformamos<br>recebimento em <span class="accent">previsibilidade</span>.</h2>
-
-  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px;">
-    <div style="background: var(--branco); padding: 32px 24px; border-top: 4px solid var(--laranja);">
-      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">20</div>
-      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">dores mapeadas no fluxo de abastecimento</p>
-    </div>
-    <div style="background: var(--branco); padding: 32px 24px; border-top: 4px solid var(--laranja);">
-      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">7</div>
-      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">dores macro sintetizadas com o Time Assaí</p>
-    </div>
-    <div style="background: var(--preto); padding: 32px 24px; color: var(--branco); border-top: 4px solid var(--laranja);">
-      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">6</div>
-      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">soluções nstech endereçando essas dores em 2026</p>
-    </div>
-    <div style="background: var(--preto); padding: 32px 24px; color: var(--branco); border-top: 4px solid var(--laranja);">
-      <div style="font-size: 64px; font-weight: 900; color: var(--laranja); line-height: 1; letter-spacing: -3px;">3</div>
-      <p style="font-size: 14px; margin-top: 12px; font-weight: 500; line-height: 1.3;">soluções já entrando em entrega (Q3/2026)</p>
-    </div>
-  </div>
-
-  <div style="margin-top: 48px; padding: 32px; background: var(--branco); border-left: 4px solid var(--laranja);">
-    <h3 style="font-size: 14px; letter-spacing: 2px; color: var(--laranja); text-transform: uppercase; margin-bottom: 16px;">Próximos passos imediatos</h3>
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
-      <div>
-        <div style="font-weight: 900; color: var(--preto); font-size: 18px; margin-bottom: 4px;">Maio · Junho</div>
-        <p style="font-size: 14px; line-height: 1.4;">Homologação da <b>parametrização de complexidade</b> no CD 920 (Maracanaú) e início de rollout.</p>
-      </div>
-      <div>
-        <div style="font-weight: 900; color: var(--preto); font-size: 18px; margin-bottom: 4px;">Q2 · 2026</div>
-        <p style="font-size: 14px; line-height: 1.4;">Discovery de <b>condições comerciais do pedido</b> e definição da Fase 1 do <b>Hub de Pedidos</b>.</p>
-      </div>
-      <div>
-        <div style="font-weight: 900; color: var(--preto); font-size: 18px; margin-bottom: 4px;">Q3 · 2026</div>
-        <p style="font-size: 14px; line-height: 1.4;">Entrega da <b>aprovação automática</b> e <b>painel de conferência NF</b> — sem dependência de integrações externas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SLIDE 13 — FINAL ========== -->
-<section class="slide final" id="slide-13">
-  <div class="slide-marker" style="color: rgba(255,255,255,0.4);"><span class="num" style="color: var(--laranja);">13</span> · Obrigado</div>
-  <div class="final-content">
-    <h1 class="final-title">
-      Controle absoluto<br>
-      e gestão da <span class="accent">previsibilidade.</span>
-    </h1>
-    <p class="final-sub">
-      Da percepção de controle limitado a um abastecimento previsível, automatizado e rastreável — começando agora.
-    </p>
-  </div>
-</section>
 
 <script>
   // Navegação por teclado e botões
@@ -1497,6 +1737,25 @@
   });
 
   updateCounter();
+
+  // Toggle AS IS / TO BE no slide 5
+  document.querySelectorAll('.fluxo-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.target;
+      const switchEl = btn.closest('.fluxo-switch');
+      const stackEl = switchEl.nextElementSibling;
+
+      switchEl.querySelectorAll('button').forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      stackEl.querySelectorAll('.fluxo-img-wrap').forEach(wrap => {
+        wrap.classList.toggle('hidden', wrap.dataset.view !== target);
+      });
+    });
+  });
 </script>
 
 </body>
